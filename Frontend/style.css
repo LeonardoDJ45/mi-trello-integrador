@@ -1,0 +1,14 @@
+.card-body {
+    min-height: 400px;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s;
+}
+
+.task-card {
+    cursor: grab;
+    margin-bottom: 10px;
+}
+
+.task-card:active {
+    cursor: grabbing;
+}

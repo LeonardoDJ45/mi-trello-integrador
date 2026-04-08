@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Trello Básico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <span class="navbar-brand">Gestor de Tareas Kanban</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="input-group">
+                    <input type="text" id="taskTitle" class="form-control" placeholder="Nueva tarea...">
+                    <button class="btn btn-primary" onclick="addTask()">Agregar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-secondary text-white">POR HACER</div>
+                    <div class="card-body" id="todo-list" ondrop="drop(event, 'todo')" ondragover="allowDrop(event)">
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">EN PROCESO</div>
+                    <div class="card-body" id="doing-list" ondrop="drop(event, 'doing')" ondragover="allowDrop(event)"></div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">HECHO</div>
+                    <div class="card-body" id="done-list" ondrop="drop(event, 'done')" ondragover="allowDrop(event)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
