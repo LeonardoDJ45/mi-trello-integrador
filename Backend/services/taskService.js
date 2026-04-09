@@ -1,32 +1,34 @@
 const repository = require('../repository/taskRepository');
 
 const taskService = {
-    getAllTasks: () => repository.readAll(),
+    getAll: () => repository.readAll(),
 
     createTask: (title) => {
-        if (!title || title.trim() === "") throw new Error("El título es requerido");
-        
+        if (!title) throw new Error("El título es obligatorio");
         const tasks = repository.readAll();
-        if (tasks.find(t => t.title.toLowerCase() === title.toLowerCase())) {
-            throw new Error("La tarea ya existe");
-        }
-
-        const newTask = { id: Date.now(), title: title.trim(), status: 'todo' };
+        const newTask = { id: Date.now(), title, status: 'todo' };
         tasks.push(newTask);
         repository.save(tasks);
         return newTask;
     },
 
-    updateTaskStatus: (id, newStatus) => {
+    updateStatus: (id, newStatus) => {
         const tasks = repository.readAll();
         const index = tasks.findIndex(t => t.id === Number(id));
-        
         if (index === -1) throw new Error("Tarea no encontrada");
         
-        const validStatuses = ['todo', 'doing', 'done'];
-        if (!validStatuses.includes(newStatus)) throw new Error("Estado inválido");
-
         tasks[index].status = newStatus;
+        repository.save(tasks);
+        return tasks[index];
+    },
+
+    updateTitle: (id, newTitle) => {
+        const tasks = repository.readAll();
+        const index = tasks.findIndex(t => t.id === Number(id));
+        if (index === -1) throw new Error("Tarea no encontrada");
+        if (!newTitle) throw new Error("El título no puede estar vacío");
+
+        tasks[index].title = newTitle;
         repository.save(tasks);
         return tasks[index];
     },

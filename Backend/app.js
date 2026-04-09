@@ -6,11 +6,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Definición de Endpoints
+// Endpoints de la API REST
 app.get('/tasks', taskController.getAll);
 app.post('/tasks', taskController.create);
-app.put('/tasks/:id', taskController.updateStatus);
+app.put('/tasks/:id/status', taskController.updateStatus);
+app.patch('/tasks/:id/title', taskController.updateTitle);
 app.delete('/tasks/:id', taskController.delete);
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Servidor en http://localhost:${PORT}`));
+app.listen(3000, () => console.log("Servidor en http://localhost:3000"));

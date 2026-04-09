@@ -1,22 +1,27 @@
 [
   {
     "id": 1775609410323,
-    "title": "Hacer mi cama",
+    "title": "Hacer mi cama 2",
     "status": "todo"
   },
   {
     "id": 1775609423516,
     "title": "Hacer nada",
+    "status": "done"
+  },
+  {
+    "id": 1775677912777,
+    "title": "texto",
+    "status": "done"
+  },
+  {
+    "id": 1775682128227,
+    "title": "texto dos",
+    "status": "todo"
+  },
+  {
+    "id": 1775683248407,
+    "title": "Por hacer",
     "status": "doing"
-  },
-  {
-    "id": 1775609522780,
-    "title": "Hola",
-    "status": "todo"
-  },
-  {
-    "id": 1775610137593,
-    "title": "Mierda",
-    "status": "todo"
   }
 ]
